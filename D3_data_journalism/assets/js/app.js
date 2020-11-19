@@ -1,19 +1,19 @@
 // @TODO: YOUR CODE HERE!
-var svgWidth = 960;
-var svgHeight = 500;    
+var svgW = 960;
+var svgH = 500;    
     var margin = {
         top:60,
         right:60,
         bottom:60,
         left:50
     };
-    var width = svgWidth - margin.left - margin.right;
-    var height = svgHeight - margin.top - margin.bottom;
+    var width = svgW - margin.left - margin.right;
+    var height = svgH - margin.top - margin.bottom;
     var svg = d3
         .select("#scatter")
         .append("svg")
-        .attr("width", svgWidth)
-        .attr("height",svgHeight + 30);
+        .attr("width", svgW)
+        .attr("height",svgH + 30);
 
     var chart = svg.append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -23,10 +23,10 @@ var svgHeight = 500;
             data.poverty = + data.poverty;
     });
     var xLinear = d3.scaleLinear()
-        .domain([8.5, d3.max(stateData, d => d.poverty)])
+        .domain([8, d3.max(stateData, d => d.poverty)])
         .range([0,width]);
     var yLinear = d3.scaleLinear()
-        .domain([4.5, d3.max(stateData, d => d.healthcare)]) 
+        .domain([4, d3.max(stateData, d => d.healthcare)]) 
         .range([height,0]);
     var bottomAx = d3.axisBottom(xLinear).ticks(8);
     var leftAx = d3.axisLeft(yLinear);
