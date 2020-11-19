@@ -1,11 +1,11 @@
 // @TODO: YOUR CODE HERE!
 var svgWidth = 960;
-var svgHeight = 630;    
+var svgHeight = 500;    
     var margin = {
         top:60,
         right:60,
         bottom:60,
-        left:20
+        left:50
     };
     var width = svgWidth - margin.left - margin.right;
     var height = svgHeight - margin.top - margin.bottom;
@@ -56,29 +56,16 @@ var svgHeight = 630;
         .classed("stateText", true)
         .attr("font-size", "10px")
 
-   var tools = d3.tip()
-        .attr("class","tooltip d3-tip")
-        .offset([80, -60])
-        .html(function(d) {
-            return(`${d.state}<br>Poverty: ${d.poverty} % <br>Healthcare: ${d.healthcare}`);
-    });
-    circle.call(tools);
-    circle.on("mouseover", function(d){
-        tools.show(d, this);
-        })
-        .on("mouseout", function(d){
-            tools.hide(d);
-        });
     chart.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left)
-        .attr("x", 0 - (height/2))
+        .attr("x", 0 - (height/1))
         .attr("dy", "1em")
         .attr("class", "axisText")
         .text("% Of Population Lacking Healthcare")
         .attr("font-weight", "bold");
     chart.append("text")
-        .attr("transform", `translate(${width/2}, ${height+40})`)
+        .attr("transform", `translate(${width/3}, ${height+35})`)
         .attr("class","axisText")
         .text(" % Of Population In Poverty")
         .attr("font-weight", "bold");
