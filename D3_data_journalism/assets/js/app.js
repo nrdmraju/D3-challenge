@@ -33,28 +33,28 @@ var svgHeight = 500;
 
     chart.append("g")
         .attr("transform", `translate(0, ${height})`)
-        .call(bottomAx);
+            .call(bottomAx);
     chart.append("g")
         .call(leftAx);
 
     var circle = chart.selectAll("circle")
         .data(stateData)
-        .enter()
+            .enter()
         .append("circle")
-        .attr("cx", d => xLinear(d.poverty))
-        .attr("cy", d => yLinear(d.healthcare))
-        .attr("r", "12")
-        .classed("stateCircle", true)
+            .attr("cx", d => xLinear(d.poverty))
+            .attr("cy", d => yLinear(d.healthcare))
+            .attr("r", "12")
+                .classed("stateCircle", true)
 
     chart.selectAll()
         .data(stateData)
-        .enter()
+            .enter()
         .append("text")
-        .attr("x", d => xLinear(d.poverty))
-        .attr("y", d => yLinear(d.healthcare))
+            .attr("x", d => xLinear(d.poverty))
+            .attr("y", d => yLinear(d.healthcare))
         .text(n => n.abbr)
-        .classed("stateText", true)
-        .attr("font-size", "10px")
+            .classed("stateText", true)
+                .attr("font-size", "10px")
 
     chart.append("text")
         .attr("transform", "rotate(-90)")
@@ -62,13 +62,11 @@ var svgHeight = 500;
         .attr("x", 0 - (height/1))
         .attr("dy", "1em")
         .attr("class", "axisText")
-        .text("% Of Population Lacking Healthcare")
-        .attr("font-weight", "bold");
+            .text("% Of Population Lacking Healthcare")
     chart.append("text")
         .attr("transform", `translate(${width/3}, ${height+35})`)
         .attr("class","axisText")
-        .text(" % Of Population In Poverty")
-        .attr("font-weight", "bold");
+            .text(" % Of Population In Poverty")
 
     }).catch(function(error){
         console.log(error);
